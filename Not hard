@@ -1,0 +1,221 @@
+N=05
+Memory location 30h to location 40h (without overlap).
+ORG 0000H
+SJMP 30H
+ORG 30H
+MOV R0, #30H // Initialize R0 with lower byte of source starting address
+MOV R1, #40H // Initialize R1 with lower byte of destination starting address
+MOV R2, #05H // R2 is used as a counter
+BACK: MOV A,@R0 //Transfer the contents of source to accumulator
+MOV @R1, A //Data of accumulator stored in destination
+INC R0 // Increment source pointer
+INC R1 // Increment destination pointer
+DJNZ R2, BACK //Decrement the counter and repeat the loop until the
+Counter is zero
+HERE: SJMP HERE
+END
+
+Write an External memory assembly language program to transfer n=10 bytes of data
+from location 8035H to location 8050H (without overlap).
+ORG 0000H
+SJMP 30H
+ORG 30H
+MOV DPH, #80H //Initialize DPH with higher byte of source and destination address 
+MOV R0, #35H // Initialize R0 with lower byte of source starting address
+MOV R1,#50H // Initialize R1 with lower byte of destination starting address
+MOV R3,#0AH // R3 is used as a counter
+BACK: MOV DPL, R0 // Load DPL with lower byte of source address
+MOVX A,@dptr //Transfer the contents of source to accumulator 
+MOV DPL,R1 // Load DPL with lower byte of destination address
+MOVX @dptr,A // Data of accumulator stored in destination
+INC R0 // Increment source pointer
+INC R1 // Increment destination pointer
+DJNZ R3, BACK //Decrement the counter and repeat the loop until the counter is zero 
+HERE: SJMP HERE
+END
+
+Transfer 10bytes of data from 40H address to Lower address with overlap of 4bytes
+(Internal memory)
+ORG 00H
+SJMP 30H
+ORG 30H
+MOV R0, #40H // Initialize R0 with lower byte of source starting address
+MOV R1, #3AH // Initialize R1 with lower byte of destination
+starting address
+MOV R2, #0AH // R2 is used as a counter
+BACK: MOV A,@R0 //Transfer the contents of source
+to accumulator
+MOV @R1, A //Data of accumulator stored in destination
+INC R0 // Increment source pointer
+INC R1 // Increment destination pointer
+DJNZ R2, BACK //Decrement the counter and repeat the loop until the
+counter iszero
+HERE: SJMP HERE
+END
+
+Generate a square wave of 40% duty cycle on port 1.0 of 1 KHz using polling technique.
+ORG 00H
+SJMP 30H
+ORG 30H
+MOV TMOD, #01H //TIMER 0 MODE1
+LOC3: SETB P1.0 // SET PORT LINE
+MOV TL0, #8FH
+MOV TH0, #0FEH //TIMER VALUE TO GENERATE 400us delay
+SETB TR0 //start timer
+LOC1: JNB TF0, LOC1 //wait till time laps
+CPL P1.0 //reset port line
+CLR TF0 // clear timer0 flag
+MOV TL0, #0D7H
+MOV TH0, #0FDH //TIMER VALUE TO GENERATE 600us delay
+LOC2: JNB TF0, LOC2 //wait till time laps
+CLR TF0 // clear timer0 flag
+SJMP LOC3 // repeat infinitely
+END
+
+Using intrupt square
+ORG 00H
+SJMP 30H
+ORG 0BH //Timer 0 interrupt vector address
+CPL P1.0 //compliment port line
+SJMP ISR_TMR0 //timer 0 interrupt service routine
+ORG 30H
+MOV TMOD, #01H //timer 0 mode1
+MOV IE, #82H // enable interrupts
+SETB P1.0 // set port line
+MOV TL0, #0BFH
+MOV TH0, #0FEH //TIMER VALUE TO GENERATE 400us delay
+SETB TR0 // start timer0
+HERE: SJMP HERE // infinite loop
+// Interrupt Service Routine
+ISR_TMR0: CLR TF0 //clear flag
+JB P1.0, LOC1 //if port line is set then set delay to 400us else 600us
+MOV TL0, #0D7H
+MOV TH0, #0FDH
+RETI
+LOC1: MOV TL0, #8FH
+MOV TH0, #0FEH
+RETI
+END
+
+Generate a square wave of 5ms ON period, 15ms OFF period, 10ms on period and
+20ms OFF period and repeat infinitely using polling technique and look up table.
+ORG 00H
+SJMP 30H
+ORG 30H
+MOV TMOD, #01H //timer0 mode1
+SETB P1.0 // set timer
+MOV TL0, #04H
+MOV TH0, #0EEH //TIMER VALUE TO GENERATE 5ms delay
+SETB TR0 // start timer
+LOC3: MOV R3, #04H // 4 different delays
+MOV DPTR, #ARRAY // Initialize to first location in the Look Up Table
+LOC2: CLR A
+MOVC A,@A+DPTR //Read data from Look up Table
+MOV R2, A // Initialize counter
+LOC1: JNB TF0, LOC1 //wait till the time laps
+CLR TF0
+MOV TL0, #04H
+MOV TH0, #0EEH //TIMER VALUE TO GENERATE 5ms delay
+DJNZ R2, LOC1 //check if the delay is generated the number times as specified
+in Look up Table
+CPL P1.0 //compliment port line
+INC DPTR
+DJNZ R3, LOC2 //repeat till the number of times specified in the Look up Table
+SJMP LOC3 //repeat the cycle infinitely
+ARRAY: DB 01H, 04H, 02H, 03H //Initialization of Look up Table
+END
+
+D
+Generate a square wave of 5ms ON period, 15ms OFF period, 10ms on period and 20ms OFF
+period and repeat infinitely using interrupt and look up table
+ORG 00H
+SJMP 30H
+ORG 0BH
+SJMP ISR_TMR0
+ORG 30H
+MOV TMOD, #01H
+MOV IE, #82H
+SETB P1.0
+MOV TL0, #04H
+MOV TH0, #0EEH
+SETB TR0
+MOV DPTR, #ARRAY
+CLR A
+MOVC A,@A+DPTR
+MOV R2, A
+INC DPTR
+MOV R3, #03H
+HERE: SJMP HERE
+ISR_TMR0: CLR TF0
+MOV TL0, #04H
+MOV TH0, #0EEH
+DJNZ R2, LOC1
+CPL P1.0
+CLR A
+MOVC A,@A+DPTR
+MOV R2, A
+INC DPTR
+DJNZ R3, LOC1
+MOV DPTR, #ARRAY
+MOV R3, #04H
+MOVC A,@A+DPTR
+MOV R2, A
+LOC1: RETI
+ARRAY: DB 01H, 04H, 02H, 03H
+END
+
+ORG 00H
+SJMP 30H
+ORG 30H
+MOV TMOD, #20H //Timer1 in mode2
+MOV TH1, #0FDH
+MOV TL1, #0FDH // for 9600 baudrate
+MOV SCON, #50H //enable serial reception in standard UART mode
+SETB TR1 //start timer 1
+MOV R2, #0FH // Initialize to number of characters in the LUT to be displayed
+MOV DPTR, #ARRAY //Initialize the LUT address
+LOC1: CLR A
+MOVC A,@A+DPTR //Read the value from LUT
+ACALL TRANS // Display function
+INC DPTR // Point to the next data byte to be displayed
+DJNZ R2, LOC1 //Repeat till all the bytes are displayed
+LOC2: SJMP LOC2
+TRANS: MOV SBUF, A //write data to the buffer
+LOC3: JNB TI, LOC3 // wait till the data is transferred
+CLR TI
+RET
+ARRAY: DB "REVA UNIVERSITY"
+END
+
+Transfer the “REVA University” through serial port at a baud rate of 9600 using SERIAL
+INTERRUPT
+ORG 00H
+SJMP 30H
+ORG 23H //Interrupt vector address of serial interrupt
+CLR TI
+SJMP ISR_SI // Interrupt service routine of serial interrupt
+ORG 30H
+MOV IE, #90H //enable serial interrupt
+MOV TMOD, #20H // timer1 mode2
+MOV TH1, #0FDH
+MOV TL1, #0FDH //set baud rate to 9600
+MOV SCON, #50H //enable serial reception
+SETB TR1 //start timer1
+MOV R2, #0FH // Number of characters to be displayed
+MOV DPTR, #ARRAY //Initialize the pointer to LUT
+CLR A
+MOVC A,@A+DPTR //Read the first byte in the LUT
+MOV SBUF, A // write to buffer
+INC DPTR // increment the pointer
+HERE: SJMP HERE
+// ISR for serial interrupt
+ISR_SI: DJNZ R2, LOC1 //return if all the characters are displayed else read the next
+character and write it into buffer
+RETI
+LOC1: CLR A
+MOVC A,@A+DPTR
+MOV SBUF, A
+INC DPTR
+RETI
+ARRAY: dB "REVA UNIVERSITY”
+END
