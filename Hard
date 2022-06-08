@@ -1,0 +1,272 @@
+Square wave 40%
+#include <REG51xD2.H>
+main ()
+{
+TMOD=0X01; 
+TR0=1; 
+while (1)
+{
+P0=0x00;
+TL0=0XD7;
+TH0=0XFD; //set timer delay for 400us
+while (TF0==0);
+TF0=0;
+P0=0xFF;
+TL0=0X8F;
+TH0=0XFE; //set timer delay for 600us
+while (TF0==0);
+TF0=0;
+}
+}
+
+Triangle wave
+#include <REG51xD2.H>
+main ()
+{
+unsigned char i ;
+P0=0x00;
+TMOD=0X02; //timer 0 mode 2
+TL0=0Xdc;
+TH0=0Xdc;
+TR0=1;
+while (1)
+{
+P0=0x00;
+for (i=0; i< 127; i++) // 127 SAMPLES
+{
+while (TF0==0); // wait till 39us
+TF0=0;
+P0=P0+2; // increment port value by 2
+}
+P0=0xff;
+for (i=0; i< 127; i++) // 127 SAMPLES
+{
+While (TF0==0);
+TF0=0;
+P0=P0+0xfe; // increment port value by 2
+}
+}
+}
+
+Ramp wave
+#include <REG51xD2.H>
+main ()
+{ unsigned char i=0;
+P0=0x00; /* P0 as output port */
+while (1)
+{
+for (i=0;i<0xff;i++) /*generate ON pulse */
+ {
+P1=i;
+P0=i;
+}}}
+
+Sine wave
+#include <REG51xD2.H>
+main()
+{
+static int a[13]={128,192,238,255,238,192,128,64,17,0,17,64,128};
+unsigned char i=0;
+P0 = 0x00; /*P0 output port */
+while(1)
+{
+for(i=0;i<13;i++) /*output different values
+{ P0=a[i];
+P1=a[i];
+}
+}
+
+Square wave
+#include <REG51xD2.H>
+
+sbit Amp =P3^3; /* port line to change amplitude */
+sbit Fre =P3^2; /*port line to change frequency */
+void delay(unsigned int X) /* delay routine */
+{
+for(;X>0;X--);
+}
+main()
+{
+unsigned char on = 0x7f,off=0x00;
+unsigned int count = 100; while(1)
+{
+if (!Amp) /* if user choice to change amplitude */
+{
+while(!Amp); /*wait for key relese */
+on+=0x08; /*increase the amplitude */
+}
+if(!Fre) /*if user choice is to change frequency */
+{
+if(count > 1000) /*if frequency exceeds 1000 reset */ 
+count = 100;
+while(!Fre); /*wait for key release */
+count+=50;} /* increase the frequency */
+P0=on; /*write amplitude to port */ 
+P1=on;
+delay(count);
+P0=off; /*clear port */
+P1=off;
+delay(count);
+}}
+
+Stepper clock and anti
+#include <REG51xD2.H>
+void delay (unsigned int x) /*Delay routine*/
+{
+for(;x>0;x--);return;
+}
+main ()
+{
+unsigned char Val,i;
+P0=0x00;
+Val = 0x11;
+for(i=0;i<4;i++)
+{
+P0 = Val;
+Val = Val>>1; /*Val= Val>>1; for clockwise direction */
+delay (500);
+}
+ }
+
+Anti
+#include <REG51xD2.H>
+void delay (unsigned int y)
+{
+unsigned int x;
+for (; y>0;y--)
+for(x=6121;x>0; x--); //delay of 46ms
+return;
+}
+main ()
+{
+unsigned char Val,i,j,k,m,n,sav[3]={4,8,10},sd[3]={1,2,4};
+P0=0x00;
+for (j=0; j<4; j++)
+{
+for (k=0; k<3;k++)
+{
+for (m=sav[k];m>0; m--) //dependent on the total number of steps
+{
+n=k & 0x01;
+if (n==0) // clockwise rotation if the index value is odd number else anticlockwise
+{
+Val = 0x08;
+for (i=0; i<4;i++)
+{
+P0 = Val;
+Val=Val>>1;
+delay (sd[k]); //stepper delay dependent on the total time delay required
+}
+}
+else
+{
+Val = 0x01;
+for(i=0;i<4;i++)
+{
+P0 = Val;
+Val=Val<<1;
+delay (sd[k]); //stepper delay dependent on the total time delay required
+}
+}
+} }}
+while (1);
+}
+
+*dc motor*
+#include <REG51xD2.H.>
+sbit inr=P3^2; //speed increment switch
+sbit dcr=P3^3; // speed decrement switch
+main ()
+{
+unsigned char i=0x80;
+P0=0x7f; /*run the motor at half speed.*/
+while (1)
+{
+if (!inr)
+{
+while (!inr);
+if(i>10)
+i=i-10; //increase the DC motor speed
+}
+if(! dcr)
+{
+while(!dcr);
+if(i<0xf0)
+i=i+10; //decrease the DC motor speed
+}
+P0=i;
+} }
+
+*HEXA*
+#include <reg51xd2.h>
+#include "lcd.h"
+unsigned char getkey();
+main()
+{
+unsigned char key;
+InitLcd(); /* initialise
+lcd*/
+WriteString("key pressed=");
+/* display msgonlcd */
+while(1)
+{
+GotoXY(12,0); /* set cursor
+position */
+key=getkey(); /* call getkey
+method*/
+}
+}
+unsigned char getkey ()
+{
+unsigned char i,j,k,indx, t=0,
+m;
+P0=0x0ff;
+P1=0x0ff; P2=0x00;
+indx =0x00; /* index for
+storing the first value of scan
+line*/
+i=0xfe;
+for(m=0;m<3;m++) /* for 3
+scan lines*/
+{
+P2=i; /* write data to scan
+line*/
+if(P0==0xff) /* if key press
+is true*/
+{
+i<<=1;
+i|=1;
+indx += 8; /* if no key
+pressed increment index */
+continue;
+}
+t=P0; /* read read lines
+connected to p0*/
+t =~t;
+while
+(P0!=0xff);
+for(j=0;j<8;j++) /* check for 8
+lines*/
+{
+t >>=1;
+if (t==0) /* if get pressed
+key*/
+{
+k=indx+j; /* Display
+that by converting to Ascii*/
+t=k>>4;
+t +=0x30;
+WriteChar(t); /* Write upper
+nibble */
+t = k & 0x0f;
+if(t > 9) t+=0x37;
+else t+=0x30;
+WriteChar(t); /* write lower
+nibble */
+return(indx+j); /* Return
+index of the key pressed */
+}
+}
+}
+}
+
