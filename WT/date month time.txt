@@ -1,0 +1,28 @@
+date month time
+<html>
+    <head>
+        <title>date object</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var today = new Date();
+            document.write("Today="+today+"<br>");
+            var d=today.getDate();
+            document.write("date="+d+",<br>");
+            var m=today.getMonth();
+            document.write("month="+m+"<br>");
+            var y=today.getFullYear();
+            document.write("year="+y+"<br>");
+            var t=today.getTime();
+            document.write("time="+t+"<br>");
+            var h=today.getHours();
+            documen.write("hours="+h+"<br>");
+            var mi=today.getMinutes();
+            document.write("minutes="+mi+"<br>");
+            var s=today.getSeconds();
+            document.write("seconds="+s+"<br>");
+            var l=today.toLocaleString();
+            document.write("local information"+l+"<br>");
+        </script>
+    </body>
+</html>

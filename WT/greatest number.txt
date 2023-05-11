@@ -1,0 +1,17 @@
+greatest number
+<html>
+    <head>
+        <title>Document</title>
+        <script>
+            var a=parseFloat(prompt('Enter a:'));
+            var b=parseFloat(prompt('Enter b:'));
+            var c=parseFloat(prompt('Enter c:'));
+            if(a>b && a>c)
+            document.write('a = '+a+' is greatest');
+            else if(b>c && b>a)
+            document.write('b = '+b+' is greatest');
+            else
+            document.write('c = '+c+' is greatest');
+        </script>
+    </head>
+</html>

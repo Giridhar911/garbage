@@ -1,0 +1,17 @@
+1st letter capital
+<!----Write an HTML java Program to check if first letter of the entered text is capital letter--->
+
+<html>
+<head><title> test String</title></head>
+<body> 
+<script>
+function testString(str)
+{
+return str.charAt(0)===str.charAt(0).toUpperCase();
+}
+
+var str=prompt("Enter astring"," ");
+document.write(testString(str));
+</script>
+</body>
+</html>

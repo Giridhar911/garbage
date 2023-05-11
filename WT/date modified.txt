@@ -1,0 +1,29 @@
+date modified
+<html>
+    <head><title>date object</title></head>
+
+    <body>
+    <script type = "text/javascript" >
+        var today = new Date();
+        document.write("Today = " + today + "<br>");
+        var d = today.getDate();
+        document.write("Date = " + d + "<br>");
+        var m = today.getMonth();
+        document.write("Month = " + m + "<br>");
+        var y = today.getFullYear();
+        document.write("YEAR = " + y + "<br>");
+        var t = today.getTime();
+        document.write("TIME = " + t + "<br>");
+        var h = today.getHours();
+        document.write("HOUR = " + h + "<br>");
+        var mi = today.getMinutes();
+        document.write("MINUTES = " + mi + "<br>");
+        var s = today.getSeconds();
+        document.write("SECONDS = " + s + "<br>");
+        var l = today.toLocaleSgtring();
+        document.write("LOCAL INFORMATION = " + l + "<br>");
+
+
+    </script>
+    </body>
+</html>

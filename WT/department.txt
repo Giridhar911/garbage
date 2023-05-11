@@ -1,0 +1,43 @@
+department
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DEPARTMENT</title>
+    <STYLE>
+        ol,ul,li{
+            color:red;
+            font-size:20px;
+            font-style:italic;
+            text-transform:uppercase;
+            font-weight:bold;          
+        }
+    </STYLE>
+
+</head>
+DEPARTMENT DESCRIPTION
+<body>
+    
+    <br>The schools are:
+    <ol type="I" start="1">
+        <li><i></b><ins>ECE</ins></i></li>
+        <li><i>EEE</i></li>
+        <li><i>CNIT</i></li>
+        <li><i>CSE</i></li>
+        <li><i>Mechanical</i></li>
+        <li><i>Civil</i></li>
+        <li><i>Architecture</i></li>
+    </ol>
+    The School of ECE contains:
+    <ul type="square">
+        <li><i>ECE</i></li>
+        <li><i><ins>ECM</ins></i></li>
+        <li><i>BEE</i></li>
+    </ul></p>
+    ABOUT REVA
+ <!--...--> <p>some paraR</p>
+   <p align="center"> <a href="https://www.figma.com/files/recent?fuid=1202527421190786859"><img src="DSC_0571.JPG"style="border-radius:20px;width:500px"></a>
+    </a><br>
+    <a href="#">top</a>
+
+</body>
+</html>

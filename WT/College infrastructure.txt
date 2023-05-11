@@ -1,0 +1,42 @@
+College infrastructure
+<html>
+    <head>
+        <title> College Servant rature </title> 
+    </head>
+    <body>
+        <table border="5" cellspacing="5" cellpading="5" align="center">
+        <caption> <h1> Infrastructure Details </h1> </caption>
+        <tr align= "Center">
+            <th> School </th> 
+            <th> Building </th>
+            <th> No of class rooms <br>
+                No. of Seminars <br>
+                No. of Labs
+            </th>
+        </tr>
+        <tr align="center">
+            <td> School of ECE </td>
+            <td> CV Raman block </td> 
+            <td> 50 <br>
+                7 <br>
+                17 </td>
+        </tr>
+        <tr align="center">
+            <td> School of CSE </td>
+            <td> Swami Vivekananda Block </td>
+            <td> 75 <br>
+                15 <br>
+                25
+            </td>
+        </tr>
+        <tr align= "center">
+            <td> School of ME & Civil </id>
+            <td> Six M Vishweshwaraiah Block </td>
+            <td> 40 <br>
+                5 <br>              
+                15
+            </td>
+        </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,95 @@
+img float(left  top and right down
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DEPARTMENT</title>
+    <STYLE>
+        ol,ul,li{
+            color:red;
+            font-size:20px;
+            font-style:italic;
+            - [ ] text-transform:uppercase;
+            font-weight:bold;          
+        }
+    </STYLE>
+<link rel="stylesheet" href="cssexter.css">
+</head>
+DEPARTMENT DESCRIPTION
+<body>
+
+    
+    <br>The schools are:
+    <ol type="I" start="1">
+        <li><i></b><ins>ECE</ins></i></li>
+        <li><i>EEE</i></li>
+        <li><i>CNIT</i></li>
+        <li><i>CSE</i></li>
+        <li><i>Mechanical</i></li>
+        <li><i>Civil</i></li>
+        <li><i>Architecture</i></li>
+    </ol>
+    The School of ECE contains:
+    <ul type="square">
+        <li><i>ECE</i></li>
+        <li><i><ins>ECM</ins></i></li>
+        <li><i>BEE</i></li>
+    </ul></p>
+
+
+    <div>
+    <img class="img1" src="img1.jpg" alt="Snow">
+    <p>  Pan India by FORTUNE India's Best B-Schools 2023.
+        Ranked 13th among Private Universities at the National Level, 8th in South West Zone and 53rd in National Level(Technical HEIs) by Institutional Innovation Council.
+        REVA University has been listed under the Diamond Band: Institute of Excellence in the India Academia Rankings for the year 2022-23.
+        According to OPEN Magazine Best B-Schools 2022 rankings REVA has been ranked 18th in South Zone and 8th in State wise list under the Private University category.
+        REVA Business School has secured the 49th position in India and 16th position in South Zone in the IIRF Top B Schools (Private Sector) ranking list for 2022-23.
+        IIRF 2023 rankings for Private Universities category (Deemed and State -Architecture and Legal Studies)</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+    
+        
+    ABOUT REVA
+        <p>  REVA University ranked 30th position in the country in the India's Top 50 Engineering Colleges Survey 2020 published by The ACADEMIC INSIGHTS.[citation needed]
+            REVA has been ranked 43rd among the Top 50 Private Engineering Institutes in India (2020) by Jagran Josh Engineering.
+            REVA has been ranked 29th Best Technical School - Countrywide (Engineering) and 20th among Private Universities by Dataquest Engineering.
+            REVA has been ranked 66th in All India (Multi-Disciplinary Universities), 28th in All India (Private & Deemed Multidisciplinary Universities), 23rd in South Zone (Multi-Disciplinary Universities), 10th in South Zone (Private & Deemed Multidisciplinary Universities) by The Week 2020 University Ranking.
+            Ranked 6th Among all the Private Universities of Karnataka and 47th Among all the Private Universities of India by QS Asian University Rankings 2023.
+            Ranked 7th in Bengaluru City, 23rd in South Zone, 66th in Private Schools Pan India and 92nd in Pan India by FORTUNE India's Best B-Schools 2023.
+            Ranked 13th among Private Universities at the National Level, 8th in South West Zone and 53rd in National Level(Technical HEIs) by Institutional Innovation Council.
+            REVA University has been listed under the Diamond Band: Institute of Excellence in the India Academia Rankings for the year 2022-23.
+            <div>
+                <img class="img2" src="photo-1503023345310-bd7c1de61c7d.jpg" alt="Forest">
+                According to OPEN Magazine Best B-Schools 2022 rankings REVA has been ranked 18th in South Zone and 8th in State wise list under the Private University category.
+            REVA Business School has secured the 49th position in India and 16th position in South Zone in the IIRF Top B Schools (Private Sector) ranking list for 2022-23.
+            IIRF 2023 rankings for Private Universities category (Deemed and State -Architecture and Legal Studies)
+            REVA University has been ranked at: School of Architecture: Ranked 17th in the country and 5th in Karnataka School of Legal Studies: Ranked 18th in the country and 4th in KarnatakaREVA University ranked 30th position in the country in the India's Top 50 Engineering Colleges Survey 2020 published by The ACADEMIC INSIGHTS.[citation needed]
+            REVA has been ranked 43rd among the Top 50 Private Engineering Institutes in India (2020) by Jagran Josh Engineering.
+            REVA has been ranked 29th Best Technical School - Countrywide (Engineering) and 20th among Private Universities by Dataquest Engineering.
+            REVA has been ranked 66th in All India (Multi-Disciplinary Universities), 28th in All India (Private & Deemed Multidisciplinary Universities), 23rd in South Zone (Multi-Disciplinary Universities), 10th in South Zone (Private & Deemed Multidisciplinary Universities) by The Week 2020 University Ranking.
+            Ranked 6th Among all the Private Universities of Karnataka and 47th Among all the Private Universities of India by QS Asian University Rankings 2023.
+            Ranked 7th in Bengaluru City, 23rd in South Zone, 66th in Private Schools Pan India and 92nd in Pan India by FORTUNE India's Best B-Schools 2023.
+            Ranked 13th among Private Universities at the National Level, 8th in South West Zone and 53rd in National Level(Technical HEIs) by Institutional Innovation Council.
+            REVA University has been listed under the Diamond Band: Institute of Excellence in the India Academia Rankings for the year 2022-23.
+            According to OPEN Magazine Best B-Schools 2022 rankings REVA has been ranked 18th in South Zone and 8th in State wise list under the Private University category.
+            REVA Business School has secured the 49th position in India and 16th position in South Zone in the IIRF Top B Schools (Private Sector) ranking list for 2022-23.
+            IIRF 2023 rankings for Private Universities category (Deemed and State -Architecture and Legal Studies)
+            REVA University has been ranked at: School of Architecture: Ranked 17th in the country and 5th in Karnataka School of Legal Studies: Ranked 18th in the country and 4th in KarnatakaREVA University ranked 30th position in the country in the India's Top 50 Engineering Colleges Survey 2020 published by The ACADEMIC INSIGHTS.[citation needed]
+        REVA has been ranked 43rd among the Top 50 Private Engineering Institutes in India (2020) by Jagran Josh Engineering.
+        REVA has been ranked 29th Best Technical School - Countrywide (Engineering) and 20th among Private Universities by Dataquest Engineering.
+        REVA has been ranked 66th in All India (Multi-Disciplinary Universities), 28th in All India (Private & Deemed Multidisciplinary Universities), 23rd in South Zone (Multi-Disciplinary Universities), 10th in South Zone (Private & Deemed Multidisciplinary Universities) by The Week 2020 University Ranking.
+         Ranked 6th Among all the Private Universities of Karnataka and 47th Among all the Private Universities of India by QS Asian University Rankings 2023.
+        Ranked 7th in Bengaluru City, 23rd in South Zone, 66th in Private Schools Pan India and 92nd in Pan India by FORTUNE India's Best B-Schools 2023.
+        Ranked 13th among Private Universities at the National Level, 8th in South West Zone and 53rd in National Level(Technical HEIs) by Institutional Innovation Council.
+        REVA University has been listed under the Diamond Band: Institute of Excellence in the India Academia Rankings for the year 2022-23.
+        According to OPEN Magazine Best B-Schools 2022 rankings REVA has been ranked 18th in South Zone and 8th in State wise list under the Private University category.
+        REVA Business School has secured the 49th position in India and 16th position in South Zone in the IIRF Top B Schools (Private Sector) ranking list for 2022-23.
+        IIRF 2023 rankings for Private Universities category (Deemed and State -Architecture and Legal Studies)
+        REVA University has been ranked at: School of Architecture: Ranked 17th in the country and 5th in Karnataka School of Legal Studies: Ranked 18th in the country and 4th in Karnataka</p>
+    </div>
+
+</body>
+</html>
