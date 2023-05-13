@@ -1,0 +1,11 @@
+module nandg(A, B, Y);
+input A, B;
+output Y;
+supply0 gnd;
+supply1 Vdd;
+wire w1;
+pmos p1(Y, Vdd, A);
+pmos p2(Y, Vdd, B);
+nmos n1(Y, w1, A);
+nmos n2(w1, gnd, B);
+endmodule

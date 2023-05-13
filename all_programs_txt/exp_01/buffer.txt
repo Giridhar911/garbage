@@ -1,0 +1,11 @@
+module buffer(A, Y);
+input A;
+output Y;
+supply0 gnd;
+supply1 Vdd;
+wire w1;
+pmos p1(w1, Vdd, A);
+pmos p2(y, Vdd, w1);
+nmos n1(w1, gnd, A);
+nmos n2(y, gnd, w1);
+endmodule

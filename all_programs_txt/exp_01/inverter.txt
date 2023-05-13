@@ -1,0 +1,8 @@
+module invereter(A,y);
+input A;
+output Y;
+supply0 gnd;
+supply1 Vdd;
+pmos p1(Y, Vdd, A);
+nmos n1(Y, gnd, A);
+endmodule
