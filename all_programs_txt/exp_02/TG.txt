@@ -1,6 +1,0 @@
-module TG(A, ctrl1, ctrl2, Y);
-input A, ctrl1, ctrl2;
-output Y;
-pmos p1(Y, A, ctrl1);
-nmos n1(Y, A, ctrl2);
-endmodule
