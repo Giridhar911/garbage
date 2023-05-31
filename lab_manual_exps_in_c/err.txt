@@ -1,0 +1,27 @@
+prog5.c: In function ‘fxnCount1’:
+prog5.c:46:35: warning: passing argument 1 of ‘pthread_cond_wait’ from incompatible pointer type [-Wincompatible-pointer-types]
+   46 |                 pthread_cond_wait(&cond_var);
+      |                                   ^~~~~~~~~
+      |                                   |
+      |                                   pthread_mutex_t *
+In file included from prog5.c:12:
+/usr/include/pthread.h:1133:58: note: expected ‘pthread_cond_t * restrict’ but argument is of type ‘pthread_mutex_t *’
+ 1133 | extern int pthread_cond_wait (pthread_cond_t *__restrict __cond,
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+prog5.c:46:17: error: too few arguments to function ‘pthread_cond_wait’
+   46 |                 pthread_cond_wait(&cond_var);
+      |                 ^~~~~~~~~~~~~~~~~
+In file included from prog5.c:12:
+/usr/include/pthread.h:1133:12: note: declared here
+ 1133 | extern int pthread_cond_wait (pthread_cond_t *__restrict __cond,
+      |            ^~~~~~~~~~~~~~~~~
+prog5.c: In function ‘fxnCount2’:
+prog5.c:69:45: warning: passing argument 1 of ‘pthread_cond_signal’ from incompatible pointer type [-Wincompatible-pointer-types]
+   69 |                         pthread_cond_signal(&cond_var);
+      |                                             ^~~~~~~~~
+      |                                             |
+      |                                             pthread_mutex_t *
+In file included from prog5.c:12:
+/usr/include/pthread.h:1121:49: note: expected ‘pthread_cond_t *’ but argument is of type ‘pthread_mutex_t *’
+ 1121 | extern int pthread_cond_signal (pthread_cond_t *__cond)
+      |                                 ~~~~~~~~~~~~~~~~^~~~~~
