@@ -1,0 +1,19 @@
+module ALU_8bit_test;
+reg[7:0] A, B;
+reg[2:0] opcode;
+wire[9:0] Y;
+ALU_8bit A1(A, B, opcode, Y);
+initial
+	begin
+		A= 8'b10101100; B= 8'b01011000;
+		opcode = 3'b000; #10;
+		opcode = 3'b001; #10;
+		opcode = 3'b010; #10;
+		opcode = 3'b011; #10;
+		opcode = 3'b100; #10;
+		opcode = 3'b101; #10;
+		opcode = 3'b110; #10;
+		opcode = 3'b111; #10;
+		#30;
+	end
+endmodule

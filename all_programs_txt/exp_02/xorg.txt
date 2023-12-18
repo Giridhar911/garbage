@@ -1,0 +1,11 @@
+module xorg(A, B, Y);
+input A, B;
+output Y;
+assign bbar = ~B;
+supply0 gnd;
+supply1 Vdd;
+pmos p1(Y, B, A);
+pmos p2(Y, A, B);
+nmos n1(Y, bbar, A);
+nmos n2(Y, A, bbar);
+endmodule

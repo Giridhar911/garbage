@@ -1,0 +1,12 @@
+module TG_test;
+reg A, ctrl1, ctrl2;
+wire Y;
+initial
+	begin
+		A= 1'b0; ctrl1= 1'b1; ctrl2= 1'b1; #10;
+		A= 1'b1; ctrl1= 1'b0; ctrl2= 1'b0; #10;
+		A= 1'b1; ctrl1= 1'b0; ctrl2= 1'b1; #10;
+		A= 1'b1; ctrl1= 1'b1; ctrl2= 1'b0; #10;
+		A= 1'b1; ctrl1= 1'b1; ctrl2= 1'b1; #10;
+	end
+endmodule
